@@ -5,11 +5,9 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 
-// TODO: Update value to your plugin's name.
-val pluginName = "GodotAndroidPluginTemplate"
+val pluginName = "GodotAndroidHaptics"
 
-// TODO: Update value to match your plugin's package name.
-val pluginPackageName = "org.godotengine.plugin.android.template"
+val pluginPackageName = "dev.mobuos.godot.android.richhaptics"
 
 android {
     namespace = pluginPackageName
@@ -20,7 +18,7 @@ android {
     }
 
     defaultConfig {
-        minSdk = 21
+        minSdk = 24
 
         manifestPlaceholders["godotPluginName"] = pluginName
         manifestPlaceholders["godotPluginPackageName"] = pluginPackageName

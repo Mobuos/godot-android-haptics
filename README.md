@@ -36,7 +36,7 @@ overview of the minimum set of modifications needed:
   * Open [`plugin/build.gradle.kts`](plugin/build.gradle.kts) and update the value for `pluginPackageName`
   * Make sure subdirectories under [`plugin/src/main/java`](plugin/src/main/java) match the 
     updated package name
-  * Make sure that `package` at the top of [`GodotAndroidPlugin.kt`](plugin/src/main/java/org/godotengine/plugin/android/template/GodotAndroidPlugin.kt)
+  * Make sure that `package` at the top of [`GodotAndroidPlugin.kt`](plugin/src/main/java/org/godotengine/plugin/android/richhaptics/GodotAndroidPlugin.kt)
     matches the updated package name
 * Complete the plugin configuration
   * Open [`plugin/export_scripts_template/plugin.cfg`](plugin/export_scripts_template/plugin.cfg)
