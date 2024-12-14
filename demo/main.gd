@@ -8,10 +8,10 @@ func _ready():
 
 func _on_Button_pressed():
 	haptics = AndroidHaptics.new()
-	haptics.vibrateEffect(AndroidHaptics.Effect.CLICK)
+	haptics.vibratePrimitive(AndroidHaptics.Primitive.SLOW_RISE, 1)
 	pass
 
 func _on_button_2_pressed() -> void:
 	haptics = AndroidHaptics.new()
-	haptics.vibrateEffect(AndroidHaptics.Effect.DOUBLE_CLICK)
+	haptics.vibratePrimitive(AndroidHaptics.Primitive.SPIN, 1)
 	pass

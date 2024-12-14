@@ -19,6 +19,12 @@ config/icon="res://icon.svg"
 
 settings/stdout/verbose_stdout=true
 
+[display]
+
+window/size/viewport_width=600
+window/size/viewport_height=900
+window/handheld/orientation=5
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/GodotAndroidHaptics/plugin.cfg")

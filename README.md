@@ -7,3 +7,6 @@ A work-in-progress plugin to add support to [clear](https://developer.android.co
 - [ ] Create a demo app
 - [ ] Package the plugin
 - [ ] Add a proper readme
+
+## Usage
+Check the demo
