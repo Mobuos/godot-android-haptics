@@ -10,20 +10,22 @@ config_version=5
 
 [application]
 
-config/name="Android Plugin Demo"
+config/name="Haptics Demo"
 run/main_scene="res://main.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
 [debug]
 
-settings/stdout/verbose_stdout=true
+gdscript/warnings/untyped_declaration=1
 
 [display]
 
-window/size/viewport_width=600
-window/size/viewport_height=900
-window/handheld/orientation=5
+window/size/viewport_width=480
+window/size/viewport_height=1024
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_width"
+window/handheld/orientation=1
 
 [editor_plugins]
 
@@ -31,6 +33,5 @@ enabled=PackedStringArray("res://addons/GodotAndroidHaptics/plugin.cfg")
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
+renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true

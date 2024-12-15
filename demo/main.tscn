@@ -1,35 +1,158 @@
-[gd_scene load_steps=2 format=3 uid="uid://cg3hylang5fxn"]
+[gd_scene load_steps=7 format=3 uid="uid://dp614it6ob0pi"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_j0gfq"]
+[ext_resource type="Script" path="res://slider_label.gd" id="1_fe166"]
+[ext_resource type="Script" path="res://primitives.gd" id="1_mwq34"]
+[ext_resource type="Script" path="res://slider.gd" id="2_71fd1"]
+[ext_resource type="Script" path="res://primitive_vibrate_button.gd" id="4_mbwj5"]
+[ext_resource type="Script" path="res://effects.gd" id="5_ssgmf"]
+[ext_resource type="Script" path="res://effect_vibrate_button.gd" id="5_u728e"]
 
-[node name="Main" type="Node2D"]
-script = ExtResource("1_j0gfq")
+[node name="Root" type="Node2D"]
 
-[node name="Button" type="Button" parent="."]
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 52.0
-offset_top = 134.0
-offset_right = 559.0
-offset_bottom = 263.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Hello World"
+[node name="Primitives" type="Node" parent="." node_paths=PackedStringArray("intensity_slider")]
+script = ExtResource("1_mwq34")
+intensity_slider = NodePath("Intensity Slider")
 
-[node name="Button2" type="Button" parent="."]
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 48.0
-offset_top = 325.0
-offset_right = 567.0
-offset_bottom = 469.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Hello World"
+[node name="RichTextLabel" type="RichTextLabel" parent="Primitives"]
+offset_left = 202.0
+offset_top = 64.0
+offset_right = 282.0
+offset_bottom = 88.0
+text = "Primitives"
 
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[node name="Intensity Label" type="RichTextLabel" parent="Primitives" node_paths=PackedStringArray("slider")]
+offset_left = 40.0
+offset_top = 96.0
+offset_right = 176.0
+offset_bottom = 120.0
+text = "Intensity:"
+script = ExtResource("1_fe166")
+slider = NodePath("../Intensity Slider")
+
+[node name="Intensity Slider" type="HSlider" parent="Primitives"]
+offset_left = 40.0
+offset_top = 128.0
+offset_right = 267.0
+offset_bottom = 144.0
+scale = Vector2(1.76, 1.76)
+max_value = 1.0
+step = 0.05
+value = 0.5
+allow_lesser = true
+script = ExtResource("2_71fd1")
+
+[node name="Vibrate Button" type="Button" parent="Primitives"]
+offset_left = 24.0
+offset_top = 192.0
+offset_right = 232.0
+offset_bottom = 248.0
+text = "Spin"
+script = ExtResource("4_mbwj5")
+
+[node name="Vibrate Button2" type="Button" parent="Primitives"]
+offset_left = 24.0
+offset_top = 336.0
+offset_right = 232.0
+offset_bottom = 392.0
+text = "Low Tick"
+script = ExtResource("4_mbwj5")
+primitiveType = 4
+
+[node name="Vibrate Button3" type="Button" parent="Primitives"]
+offset_left = 248.0
+offset_top = 264.0
+offset_right = 456.0
+offset_bottom = 320.0
+text = "Click"
+script = ExtResource("4_mbwj5")
+primitiveType = 3
+
+[node name="Vibrate Button4" type="Button" parent="Primitives"]
+offset_left = 24.0
+offset_top = 264.0
+offset_right = 232.0
+offset_bottom = 320.0
+text = "Tick"
+script = ExtResource("4_mbwj5")
+primitiveType = 2
+
+[node name="Vibrate Button5" type="Button" parent="Primitives"]
+offset_left = 248.0
+offset_top = 192.0
+offset_right = 456.0
+offset_bottom = 248.0
+text = "Thud"
+script = ExtResource("4_mbwj5")
+primitiveType = 1
+
+[node name="Vibrate Button6" type="Button" parent="Primitives"]
+offset_left = 248.0
+offset_top = 336.0
+offset_right = 456.0
+offset_bottom = 392.0
+text = "Quick Fall"
+script = ExtResource("4_mbwj5")
+primitiveType = 5
+
+[node name="Vibrate Button7" type="Button" parent="Primitives"]
+offset_left = 24.0
+offset_top = 408.0
+offset_right = 232.0
+offset_bottom = 464.0
+text = "Quick Rise"
+script = ExtResource("4_mbwj5")
+primitiveType = 6
+
+[node name="Vibrate Button8" type="Button" parent="Primitives"]
+offset_left = 248.0
+offset_top = 408.0
+offset_right = 456.0
+offset_bottom = 464.0
+text = "Slow Rise"
+script = ExtResource("4_mbwj5")
+primitiveType = 7
+
+[node name="Effects" type="Node" parent="."]
+script = ExtResource("5_ssgmf")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Effects"]
+offset_left = 214.0
+offset_top = 488.0
+offset_right = 268.0
+offset_bottom = 512.0
+text = "Effects"
+
+[node name="Vibrate Button" type="Button" parent="Effects"]
+offset_left = 24.0
+offset_top = 530.0
+offset_right = 232.0
+offset_bottom = 586.0
+text = "Click"
+script = ExtResource("5_u728e")
+
+[node name="Vibrate Button2" type="Button" parent="Effects"]
+offset_left = 248.0
+offset_top = 602.0
+offset_right = 456.0
+offset_bottom = 658.0
+text = "Heavy Click"
+script = ExtResource("5_u728e")
+effectType = 3
+
+[node name="Vibrate Button3" type="Button" parent="Effects"]
+offset_left = 24.0
+offset_top = 602.0
+offset_right = 232.0
+offset_bottom = 658.0
+text = "Tick"
+script = ExtResource("5_u728e")
+effectType = 2
+
+[node name="Vibrate Button4" type="Button" parent="Effects"]
+offset_left = 248.0
+offset_top = 530.0
+offset_right = 456.0
+offset_bottom = 586.0
+text = "Double Click"
+script = ExtResource("5_u728e")
+effectType = 1

@@ -4,7 +4,7 @@ A work-in-progress plugin to add support to [clear](https://developer.android.co
 ## TODO
 - [x] Get the basic functionality working
 - [x] Create wrapper script to make use of Kotlin functions easier
-- [ ] Create a demo app
+- [x] Create a demo app
 - [ ] Package the plugin
 - [ ] Add a proper readme
 
