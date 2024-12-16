@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dp614it6ob0pi"]
+[gd_scene load_steps=8 format=3 uid="uid://dp614it6ob0pi"]
 
 [ext_resource type="Script" path="res://slider_label.gd" id="1_fe166"]
 [ext_resource type="Script" path="res://primitives.gd" id="1_mwq34"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://primitive_vibrate_button.gd" id="4_mbwj5"]
 [ext_resource type="Script" path="res://effects.gd" id="5_ssgmf"]
 [ext_resource type="Script" path="res://effect_vibrate_button.gd" id="5_u728e"]
+[ext_resource type="Script" path="res://resist_slider.gd" id="7_8v6gv"]
 
 [node name="Root" type="Node2D"]
 
@@ -15,9 +16,9 @@ intensity_slider = NodePath("Intensity Slider")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Primitives"]
 offset_left = 202.0
-offset_top = 64.0
+offset_top = 72.0
 offset_right = 282.0
-offset_bottom = 88.0
+offset_bottom = 96.0
 text = "Primitives"
 
 [node name="Intensity Label" type="RichTextLabel" parent="Primitives" node_paths=PackedStringArray("slider")]
@@ -117,9 +118,9 @@ script = ExtResource("5_ssgmf")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Effects"]
 offset_left = 214.0
-offset_top = 488.0
+offset_top = 496.0
 offset_right = 268.0
-offset_bottom = 512.0
+offset_bottom = 520.0
 text = "Effects"
 
 [node name="Vibrate Button" type="Button" parent="Effects"]
@@ -156,3 +157,26 @@ offset_bottom = 586.0
 text = "Double Click"
 script = ExtResource("5_u728e")
 effectType = 1
+
+[node name="Drag" type="Node" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Drag"]
+offset_left = 208.0
+offset_top = 696.0
+offset_right = 280.0
+offset_bottom = 720.0
+text = "Example"
+
+[node name="HSlider" type="HSlider" parent="Drag"]
+offset_left = 24.0
+offset_top = 736.0
+offset_right = 240.0
+offset_bottom = 752.0
+scale = Vector2(2, 2)
+max_value = 1.0
+step = 0.01
+script = ExtResource("7_8v6gv")
+
+[connection signal="drag_ended" from="Drag/HSlider" to="Drag/HSlider" method="_on_drag_ended"]
+[connection signal="drag_started" from="Drag/HSlider" to="Drag/HSlider" method="_on_drag_started"]
+[connection signal="value_changed" from="Drag/HSlider" to="Drag/HSlider" method="_on_value_changed"]
