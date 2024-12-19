@@ -1,4 +1,11 @@
 # Godot Android Haptics Plugin
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/c8882560-6939-4f73-a0bd-38e5de9000bf" />
+</p>
+
+
+
+
 A plugin to add support to [clear](https://developer.android.com/develop/ui/views/haptics/haptics-principles#clear_haptics) and [rich](https://developer.android.com/develop/ui/views/haptics/haptics-principles#rich_haptics) haptics, as opposed to the default [buzzy](https://developer.android.com/develop/ui/views/haptics/haptics-principles#buzzy_haptics) haptics that [Godot offers](https://docs.godotengine.org/en/stable/classes/class_input.html#class-input-method-vibrate-handheld) by default.
 
 ## Installation
@@ -7,6 +14,7 @@ Grab the zipped `addons.zip` from releases, and unzip its contents into the root
 ## Usage
 Check `haptics_wrapper.gd`, but in short:
 ```gdscript
+
 haptics = AndroidHaptics.new()
 haptics.vibratePrimitive(AndroidHaptics.Primitive.THUD, 0.5) # primitive, intensity
 haptics.vibrateEffect(AndroidHaptics.Effect.TICK) # effect
