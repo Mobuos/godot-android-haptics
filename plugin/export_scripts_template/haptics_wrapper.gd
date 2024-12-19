@@ -119,7 +119,7 @@ static func _get_primitive_string(primitive: Primitive) -> String:
     printerr("Could not find primitive %s! Returning empty string." % primitive)
     return ""
 
-static func _clamp_intensity(intensity: int) -> int:
+static func _clamp_intensity(intensity: float) -> float:
     if intensity < 0.0 or intensity > 1.0:
         printerr("Intensity value %f out of range (0.0 - 1.0). Clamping to valid range." % intensity)
     intensity = clamp(intensity, 0.0, 1.0)

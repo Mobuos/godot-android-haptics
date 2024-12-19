@@ -81,6 +81,7 @@ class GodotAndroidPlugin(godot: Godot): GodotPlugin(godot) {
         runOnUiThread {
             primitiveMap[primitiveType]?.let { vibrationPrimitive ->
                 val vibrator = activity?.getSystemService(Vibrator::class.java)
+                Log.d(pluginName, "Vibrating with primitive $primitiveType and strength $strength")
                 vibrator?.vibrate(VibrationEffect.startComposition().addPrimitive(vibrationPrimitive, strength).compose())
             } ?: run {
                 Log.d(pluginName, "No primitive type $primitiveType was found, no vibration will be used")

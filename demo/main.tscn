@@ -185,7 +185,6 @@ offset_right = 456.0
 offset_bottom = 860.0
 text = "Composition"
 script = ExtResource("8_oxix2")
-composition_alternative = true
 
 [connection signal="drag_ended" from="Examples/HSlider" to="Examples/HSlider" method="_on_drag_ended"]
 [connection signal="drag_started" from="Examples/HSlider" to="Examples/HSlider" method="_on_drag_started"]
