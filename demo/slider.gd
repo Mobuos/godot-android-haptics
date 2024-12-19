@@ -9,10 +9,6 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-
 func _value_changed(_new_value: float) -> void:
 	# Slider haptic feedback
 	haptics.vibratePrimitive(AndroidHaptics.Primitive.CLICK, 0.5)

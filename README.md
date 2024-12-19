@@ -6,7 +6,11 @@ Check `haptics_wrapper.gd`, but in short:
 ```gdscript
 haptics = AndroidHaptics.new()
 haptics.vibratePrimitive(AndroidHaptics.Primitive.THUD, 0.5) # primitive, intensity
-haptics.vibratePrimitive(AndroidHaptics.Effect.TICK) # effect
+haptics.vibrateEffect(AndroidHaptics.Effect.TICK) # effect
+haptics.Composition.new()\
+    .addPrimitive(AndroidHaptics.Primitive.SLOW_RISE, 1.0)\
+    .addPrimitive(AndroidHaptics.Primitive.THUD, 1.0, 500)\ 
+    .vibrate() # primitive, intensity, delay(ms)
 ```
 
 ## Recommendations

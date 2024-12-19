@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dp614it6ob0pi"]
+[gd_scene load_steps=9 format=3 uid="uid://dp614it6ob0pi"]
 
 [ext_resource type="Script" path="res://slider_label.gd" id="1_fe166"]
 [ext_resource type="Script" path="res://primitives.gd" id="1_mwq34"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://effects.gd" id="5_ssgmf"]
 [ext_resource type="Script" path="res://effect_vibrate_button.gd" id="5_u728e"]
 [ext_resource type="Script" path="res://resist_slider.gd" id="7_8v6gv"]
+[ext_resource type="Script" path="res://composition_example.gd" id="8_oxix2"]
 
 [node name="Root" type="Node2D"]
 
@@ -158,16 +159,16 @@ text = "Double Click"
 script = ExtResource("5_u728e")
 effectType = 1
 
-[node name="Drag" type="Node" parent="."]
+[node name="Examples" type="Node" parent="."]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Drag"]
-offset_left = 208.0
+[node name="RichTextLabel" type="RichTextLabel" parent="Examples"]
+offset_left = 181.0
 offset_top = 696.0
-offset_right = 280.0
+offset_right = 309.0
 offset_bottom = 720.0
-text = "Example"
+text = "Other examples"
 
-[node name="HSlider" type="HSlider" parent="Drag"]
+[node name="HSlider" type="HSlider" parent="Examples"]
 offset_left = 24.0
 offset_top = 736.0
 offset_right = 240.0
@@ -177,6 +178,16 @@ max_value = 1.0
 step = 0.01
 script = ExtResource("7_8v6gv")
 
-[connection signal="drag_ended" from="Drag/HSlider" to="Drag/HSlider" method="_on_drag_ended"]
-[connection signal="drag_started" from="Drag/HSlider" to="Drag/HSlider" method="_on_drag_started"]
-[connection signal="value_changed" from="Drag/HSlider" to="Drag/HSlider" method="_on_value_changed"]
+[node name="Button" type="Button" parent="Examples"]
+offset_left = 24.0
+offset_top = 796.0
+offset_right = 456.0
+offset_bottom = 860.0
+text = "Composition"
+script = ExtResource("8_oxix2")
+composition_alternative = true
+
+[connection signal="drag_ended" from="Examples/HSlider" to="Examples/HSlider" method="_on_drag_ended"]
+[connection signal="drag_started" from="Examples/HSlider" to="Examples/HSlider" method="_on_drag_started"]
+[connection signal="value_changed" from="Examples/HSlider" to="Examples/HSlider" method="_on_value_changed"]
+[connection signal="pressed" from="Examples/Button" to="Examples/Button" method="_on_pressed"]

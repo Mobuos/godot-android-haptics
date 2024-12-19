@@ -44,4 +44,4 @@ func _on_drag_ended(_value_changed: bool) -> void:
 
 func _on_value_changed(value: float) -> void:
 	if value == 0:
-		haptics.vibratePrimitive(haptics.Primitive.THUD, 0.5)
+		haptics.vibratePrimitive(AndroidHaptics.Primitive.THUD, 0.5)

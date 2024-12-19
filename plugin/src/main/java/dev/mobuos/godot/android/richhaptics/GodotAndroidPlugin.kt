@@ -89,6 +89,50 @@ class GodotAndroidPlugin(godot: Godot): GodotPlugin(godot) {
     }
 
     /**
+     * Custom haptics (See https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects)
+     *
+     * Accepts an array of strings, with each string defining "<primitive>-<intensity>-<delay>", with
+     * <primitive> being a value from primitiveMap, <intensity> being a float between 0.0 and 1.0 and
+     * <delay> being the delay in milliseconds to wait before playing this primitive.
+     */
+    @TargetApi(Build.VERSION_CODES.R)
+    @UsedByGodot
+    fun vibrateComposition(composition: Array<String>) {
+        runOnUiThread {
+            val vibrator = activity?.getSystemService(Vibrator::class.java)
+            val effectBuilder = VibrationEffect.startComposition()
+
+            for (entry in composition) {
+                val parts = entry.split("-")
+                if (parts.size < 2) {
+                    Log.d(pluginName, "Invalid composition entry: $entry")
+                    continue
+                }
+
+                val primitive = primitiveMap[parts[0]]
+                val intensity = parts[1].toFloatOrNull()
+                val delay = parts[2].toIntOrNull()
+
+                if (primitive == null) {
+                    Log.d(pluginName, "Invalid primitive in composition entry: $entry")
+                    continue
+                }
+                if (intensity == null) {
+                    Log.d(pluginName, "Invalid intensity in composition entry: $entry")
+                    continue
+                }
+                if (delay == null) {
+                    Log.d(pluginName, "Invalid delay in composition entry: $entry")
+                    continue
+                }
+
+                effectBuilder.addPrimitive(primitive, intensity, delay)
+            }
+            vibrator?.vibrate(effectBuilder.compose())
+        }
+    }
+
+    /**
      * Check if device supports all rich haptics effects
      *
      * Rich haptics are used in vibratePrimitive()

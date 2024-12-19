@@ -11,7 +11,6 @@ func _ready() -> void:
 		_slider_value_changed(slider.value)
 	else:
 		printerr("No slider was attached to \"%s\"" % self.name)
-	pass # Replace with function body.
 
 func _slider_value_changed(new_value: float) -> void:
 	self.text = original_text + " " + str(new_value)

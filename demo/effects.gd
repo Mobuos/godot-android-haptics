@@ -12,6 +12,3 @@ func _ready() -> void:
 
 func _on_button_pressed(effectType: AndroidHaptics.Effect) -> void:
 	haptics.vibrateEffect(effectType)
-
-func wait(wait_duration: float) -> void:  
-	await get_tree().create_timer(wait_duration, false, false, true).timeout
