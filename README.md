@@ -3,10 +3,7 @@
   <img src="https://github.com/user-attachments/assets/c8882560-6939-4f73-a0bd-38e5de9000bf" />
 </p>
 
-
-
-
-A plugin to add support to [clear](https://developer.android.com/develop/ui/views/haptics/haptics-principles#clear_haptics) and [rich](https://developer.android.com/develop/ui/views/haptics/haptics-principles#rich_haptics) haptics, as opposed to the default [buzzy](https://developer.android.com/develop/ui/views/haptics/haptics-principles#buzzy_haptics) haptics that [Godot offers](https://docs.godotengine.org/en/stable/classes/class_input.html#class-input-method-vibrate-handheld) by default.
+A plugin to add support to [clear](https://developer.android.com/develop/ui/views/haptics/haptics-principles#clear_haptics) and [rich](https://developer.android.com/develop/ui/views/haptics/haptics-principles#rich_haptics) haptics, as opposed to the default [buzzy](https://developer.android.com/develop/ui/views/haptics/haptics-principles#buzzy_haptics) haptics that [Godot offers](https://docs.godotengine.org/en/stable/classes/class_input.html#class-input-method-vibrate-handheld).
 
 ## Installation
 Grab the zipped `addons.zip` from releases, and unzip its contents into the root folder of your project. After that you should be able to enable the plugin in Project -> Project Settings -> Plugins. Also make sure the "Vibrate" permission is allowed in Project -> Export / Android window.
@@ -25,8 +22,8 @@ haptics.Composition.new()\
 ```
 
 ## Recommendations
-There's likely no better resource than the Android documentation itself: https://developer.android.com/develop/ui/views/haptics
-Most functions provided work very similarly to the ones used in native Android code, but not only that, the high level concepts can be easily re-used here:
+There's likely no better resource than the Android documentation itself: https://developer.android.com/develop/ui/views/haptics.
+Most functions provided here will work very similarly to the ones used in native Android code. Not only that, the high level concepts can be easily re-used as well:
 
 > At a high level, the design guidelines can be summarized as:
 > 
