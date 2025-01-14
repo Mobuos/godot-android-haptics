@@ -8,6 +8,8 @@ A plugin to add support to [clear](https://developer.android.com/develop/ui/view
 ## Installation
 Grab the zipped `addons.zip` from releases, and unzip its contents into the root folder of your project. After that you should be able to enable the plugin in Project -> Project Settings -> Plugins. Also make sure the "Vibrate" permission is allowed in Project -> Export / Android window.
 
+You can also now install directly through Godot, as this plugin is available on the Asset Store! Just note it might not be the most up-to-date version :)
+
 ## Usage
 Check `haptics_wrapper.gd`, but in short:
 ```gdscript
