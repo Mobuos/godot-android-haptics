@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://dp614it6ob0pi"]
 
-[ext_resource type="Script" path="res://slider_label.gd" id="1_fe166"]
-[ext_resource type="Script" path="res://primitives.gd" id="1_mwq34"]
-[ext_resource type="Script" path="res://slider.gd" id="2_71fd1"]
-[ext_resource type="Script" path="res://primitive_vibrate_button.gd" id="4_mbwj5"]
-[ext_resource type="Script" path="res://effects.gd" id="5_ssgmf"]
-[ext_resource type="Script" path="res://effect_vibrate_button.gd" id="5_u728e"]
-[ext_resource type="Script" path="res://resist_slider.gd" id="7_8v6gv"]
-[ext_resource type="Script" path="res://composition_example.gd" id="8_oxix2"]
+[ext_resource type="Script" uid="uid://cb3l8g8nvn56x" path="res://slider_label.gd" id="1_fe166"]
+[ext_resource type="Script" uid="uid://bnpvitdj85ao" path="res://primitives.gd" id="1_mwq34"]
+[ext_resource type="Script" uid="uid://dlib17avjyca0" path="res://slider.gd" id="2_71fd1"]
+[ext_resource type="Script" uid="uid://b2uh0iiq0fqto" path="res://primitive_vibrate_button.gd" id="4_mbwj5"]
+[ext_resource type="Script" uid="uid://bjdetl7w1s3ki" path="res://effects.gd" id="5_ssgmf"]
+[ext_resource type="Script" uid="uid://4uqf34apqc5x" path="res://effect_vibrate_button.gd" id="5_u728e"]
+[ext_resource type="Script" uid="uid://bhc0lsbjdap0m" path="res://resist_slider.gd" id="7_8v6gv"]
+[ext_resource type="Script" uid="uid://i2b2gwfahhjn" path="res://composition_example.gd" id="8_oxix2"]
 
 [node name="Root" type="Node2D"]
 
