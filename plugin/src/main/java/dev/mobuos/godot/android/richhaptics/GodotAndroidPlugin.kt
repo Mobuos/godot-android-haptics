@@ -134,6 +134,44 @@ class GodotAndroidPlugin(godot: Godot): GodotPlugin(godot) {
     }
 
     /**
+     * Vibrate with a given waveform
+     */
+    @UsedByGodot
+    fun vibrateWaveform(timings: IntArray, amplitudes: IntArray, repeat: Int) {
+        runOnUiThread {
+            if (timings.isEmpty() || amplitudes.isEmpty()) {
+                Log.e(pluginName, "vibrateWaveform: timings or amplitudes are empty, skipping vibration.")
+                return@runOnUiThread
+            }
+            if (timings.size != amplitudes.size) {
+                Log.e(pluginName, "Mismatch between timings and amplitudes lengths!")
+                return@runOnUiThread
+            }
+            if (repeat >= timings.size) {
+                Log.e(pluginName, "Invalid repeat index: $repeat (timings size: ${timings.size})")
+                return@runOnUiThread
+            }
+
+            val vibrator = activity?.getSystemService(Vibrator::class.java)
+            val longTimings = timings.map { it.toLong() }.toLongArray()
+            val effect = VibrationEffect.createWaveform(longTimings, amplitudes, repeat)
+
+            vibrator?.vibrate(effect)
+        }
+    }
+
+    /**
+     * Stops all vibrations
+     */
+    @UsedByGodot
+    fun stopVibrations() {
+        runOnUiThread {
+            val vibrator = activity?.getSystemService(Vibrator::class.java)
+            vibrator?.cancel()
+        }
+    }
+
+    /**
      * Check if device supports all rich haptics effects
      *
      * Rich haptics are used in vibratePrimitive()
@@ -156,4 +194,6 @@ class GodotAndroidPlugin(godot: Godot): GodotPlugin(godot) {
             return false
         }
     }
+
+
 }

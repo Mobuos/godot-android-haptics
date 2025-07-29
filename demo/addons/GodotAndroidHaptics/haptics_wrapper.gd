@@ -75,6 +75,83 @@ class Composition:
 		else:
 			printerr("Plugin not initialized")
 
+class Waveform:
+	var timings: Array[int]
+	var amplitudes: Array[int]
+	var repeat: int
+	var _plugin_name = "GodotAndroidHaptics"
+	var _plugin_singleton
+
+	## timings: Values in milliseconds, 0 causes the pair to be ignored;
+	## amplitudes: Between 0 and 255, 0 implies the motor is off;
+	## repeatIndex: Index into the timings array at which to repeat, -1 implies a one-shot
+	##              if not set to -1, should be stopped manually;
+	func _init(timings: Array[int], amplitudes: Array[int], repeatIndex: int = -1) -> void:
+		if Engine.has_singleton(_plugin_name):
+			_plugin_singleton = Engine.get_singleton(_plugin_name)
+		else:
+			push_warning("%s: Failed to initialize! Unable to access the java logic" % _plugin_name)
+		
+		self.timings = timings
+		self.amplitudes = amplitudes
+		self.repeat = repeatIndex
+	
+	static func from_curve(
+		curve: Curve, 
+		duration_ms: int = 1000, 
+		sample_interval_ms: int = 20, 
+		repeat_at_ms: int = -1) -> Waveform:
+			var timings: Array[int] = []
+			var amplitudes: Array[int] = []
+			
+			if curve == null:
+				push_error("AndroidHaptics: Curve cannot be null.")
+				return null
+
+			if duration_ms <= 0:
+				push_error("AndroidHaptics: duration_ms must be > 0. Got: %d" % duration_ms)
+				return null
+
+			if sample_interval_ms <= 0:
+				push_error("AndroidHaptics: sample_interval_ms must be > 0. Got: %d" % sample_interval_ms)
+				return null
+
+			if duration_ms < sample_interval_ms:
+				push_warning("AndroidHaptics: sample_interval_ms is larger than duration_ms — only one sample will be taken.")
+			
+			# Sample curve for amplitudes
+			var total_steps = int(duration_ms / sample_interval_ms)
+			for i in total_steps:
+				timings.append(sample_interval_ms)
+				
+				var t = float(i) / total_steps # Normalized time
+				var strength = clamp(curve.sample(t), 0.0, 1.0)
+				amplitudes.append(int(round(strength * 255)))
+			
+			# Convert repeat time to index
+			var repeat_idx := -1
+			if repeat_at_ms >= 0:
+				repeat_idx = int(repeat_at_ms / sample_interval_ms)
+				if repeat_idx >= total_steps:
+					push_warning("AndroidHaptics Waveform: repeat_at_ms provided is invalid, defaulting to -1")
+					repeat_idx = -1
+			
+			return AndroidHaptics.Waveform.new(timings, amplitudes, repeat_idx)
+	
+## Plays this waveform
+	func play() -> void:
+		if _plugin_singleton:
+			_plugin_singleton.call("vibrateWaveform", timings, amplitudes, repeat)
+		else:
+			printerr("Plugin not initialized")
+
+## Stops *all* vibrations
+func stopVibrations() -> void:
+	if _plugin_singleton:
+		_plugin_singleton.stopVibrations()
+	else:
+		printerr("Plugin not initialized")
+
 ## Check if device has support for clear haptics (effects)
 func hasEffectSupport() -> bool:
 	if !OS.has_feature("android"):

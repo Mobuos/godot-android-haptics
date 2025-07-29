@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dp614it6ob0pi"]
+[gd_scene load_steps=11 format=3 uid="uid://dp614it6ob0pi"]
 
 [ext_resource type="Script" uid="uid://cb3l8g8nvn56x" path="res://slider_label.gd" id="1_fe166"]
 [ext_resource type="Script" uid="uid://bnpvitdj85ao" path="res://primitives.gd" id="1_mwq34"]
@@ -8,6 +8,11 @@
 [ext_resource type="Script" uid="uid://4uqf34apqc5x" path="res://effect_vibrate_button.gd" id="5_u728e"]
 [ext_resource type="Script" uid="uid://bhc0lsbjdap0m" path="res://resist_slider.gd" id="7_8v6gv"]
 [ext_resource type="Script" uid="uid://i2b2gwfahhjn" path="res://composition_example.gd" id="8_oxix2"]
+[ext_resource type="Script" uid="uid://c6auewiitoqr5" path="res://waveform.gd" id="9_kek77"]
+
+[sub_resource type="Curve" id="Curve_kek77"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.230769, 0.213483), 3.52185, 3.52185, 0, 0, Vector2(0.285714, 1), 0.0, 0.0, 0, 0, Vector2(0.32967, 0), 0.0, 0.0, 0, 0, Vector2(0.39011, 1), 0.0, 0.0, 0, 0, Vector2(0.43956, 0.539326), -3.83427, -3.83427, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 7
 
 [node name="Root" type="Node2D"]
 
@@ -186,7 +191,17 @@ offset_bottom = 860.0
 text = "Composition"
 script = ExtResource("8_oxix2")
 
+[node name="Button2" type="Button" parent="Examples"]
+offset_left = 24.0
+offset_top = 880.0
+offset_right = 456.0
+offset_bottom = 944.0
+text = "Waveform"
+script = ExtResource("9_kek77")
+curve = SubResource("Curve_kek77")
+
 [connection signal="drag_ended" from="Examples/HSlider" to="Examples/HSlider" method="_on_drag_ended"]
 [connection signal="drag_started" from="Examples/HSlider" to="Examples/HSlider" method="_on_drag_started"]
 [connection signal="value_changed" from="Examples/HSlider" to="Examples/HSlider" method="_on_value_changed"]
 [connection signal="pressed" from="Examples/Button" to="Examples/Button" method="_on_pressed"]
+[connection signal="pressed" from="Examples/Button2" to="Examples/Button2" method="_on_pressed"]
