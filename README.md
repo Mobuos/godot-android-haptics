@@ -21,6 +21,17 @@ haptics.Composition.new()\
     .addPrimitive(AndroidHaptics.Primitive.SLOW_RISE, 1.0)\
     .addPrimitive(AndroidHaptics.Primitive.THUD, 1.0, 500)\ 
     .vibrate() # primitive, intensity, delay(ms)
+
+var wave = AndroidHaptics.Waveform.new(
+  [ 100, 100, 80,  80, 30,  30, 150, 40,  40, 200],
+  [ 60,  0,   120, 0,  255, 0,  0,   255, 0,  0],
+)
+wave.play()
+
+@export var curve: Curve
+var wave2 = AndroidHaptics.Waveform.from_curve(curve, 2000, 20, 100)
+
+haptics.stopVibrations()
 ```
 
 ## Recommendations
