@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dp614it6ob0pi"]
+[gd_scene format=3 uid="uid://dp614it6ob0pi"]
 
 [ext_resource type="Script" uid="uid://cb3l8g8nvn56x" path="res://slider_label.gd" id="1_fe166"]
 [ext_resource type="Script" uid="uid://bnpvitdj85ao" path="res://primitives.gd" id="1_mwq34"]
@@ -14,20 +14,20 @@
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.230769, 0.213483), 3.52185, 3.52185, 0, 0, Vector2(0.285714, 1), 0.0, 0.0, 0, 0, Vector2(0.32967, 0), 0.0, 0.0, 0, 0, Vector2(0.39011, 1), 0.0, 0.0, 0, 0, Vector2(0.43956, 0.539326), -3.83427, -3.83427, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 7
 
-[node name="Root" type="Node2D"]
+[node name="Root" type="Node2D" unique_id=615704155]
 
-[node name="Primitives" type="Node" parent="." node_paths=PackedStringArray("intensity_slider")]
+[node name="Primitives" type="Node" parent="." unique_id=1627321797 node_paths=PackedStringArray("intensity_slider")]
 script = ExtResource("1_mwq34")
 intensity_slider = NodePath("Intensity Slider")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Primitives"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Primitives" unique_id=11538934]
 offset_left = 202.0
 offset_top = 72.0
 offset_right = 282.0
 offset_bottom = 96.0
 text = "Primitives"
 
-[node name="Intensity Label" type="RichTextLabel" parent="Primitives" node_paths=PackedStringArray("slider")]
+[node name="Intensity Label" type="RichTextLabel" parent="Primitives" unique_id=359147165 node_paths=PackedStringArray("slider")]
 offset_left = 40.0
 offset_top = 96.0
 offset_right = 176.0
@@ -36,7 +36,7 @@ text = "Intensity:"
 script = ExtResource("1_fe166")
 slider = NodePath("../Intensity Slider")
 
-[node name="Intensity Slider" type="HSlider" parent="Primitives"]
+[node name="Intensity Slider" type="HSlider" parent="Primitives" unique_id=1220950708]
 offset_left = 40.0
 offset_top = 128.0
 offset_right = 267.0
@@ -48,7 +48,7 @@ value = 0.5
 allow_lesser = true
 script = ExtResource("2_71fd1")
 
-[node name="Vibrate Button" type="Button" parent="Primitives"]
+[node name="Vibrate Button" type="Button" parent="Primitives" unique_id=457354125]
 offset_left = 24.0
 offset_top = 192.0
 offset_right = 232.0
@@ -56,7 +56,7 @@ offset_bottom = 248.0
 text = "Spin"
 script = ExtResource("4_mbwj5")
 
-[node name="Vibrate Button2" type="Button" parent="Primitives"]
+[node name="Vibrate Button2" type="Button" parent="Primitives" unique_id=2064867194]
 offset_left = 24.0
 offset_top = 336.0
 offset_right = 232.0
@@ -65,7 +65,7 @@ text = "Low Tick"
 script = ExtResource("4_mbwj5")
 primitiveType = 4
 
-[node name="Vibrate Button3" type="Button" parent="Primitives"]
+[node name="Vibrate Button3" type="Button" parent="Primitives" unique_id=1318713764]
 offset_left = 248.0
 offset_top = 264.0
 offset_right = 456.0
@@ -74,7 +74,7 @@ text = "Click"
 script = ExtResource("4_mbwj5")
 primitiveType = 3
 
-[node name="Vibrate Button4" type="Button" parent="Primitives"]
+[node name="Vibrate Button4" type="Button" parent="Primitives" unique_id=370256928]
 offset_left = 24.0
 offset_top = 264.0
 offset_right = 232.0
@@ -83,7 +83,7 @@ text = "Tick"
 script = ExtResource("4_mbwj5")
 primitiveType = 2
 
-[node name="Vibrate Button5" type="Button" parent="Primitives"]
+[node name="Vibrate Button5" type="Button" parent="Primitives" unique_id=1479553808]
 offset_left = 248.0
 offset_top = 192.0
 offset_right = 456.0
@@ -92,7 +92,7 @@ text = "Thud"
 script = ExtResource("4_mbwj5")
 primitiveType = 1
 
-[node name="Vibrate Button6" type="Button" parent="Primitives"]
+[node name="Vibrate Button6" type="Button" parent="Primitives" unique_id=462948956]
 offset_left = 248.0
 offset_top = 336.0
 offset_right = 456.0
@@ -101,7 +101,7 @@ text = "Quick Fall"
 script = ExtResource("4_mbwj5")
 primitiveType = 5
 
-[node name="Vibrate Button7" type="Button" parent="Primitives"]
+[node name="Vibrate Button7" type="Button" parent="Primitives" unique_id=1623578195]
 offset_left = 24.0
 offset_top = 408.0
 offset_right = 232.0
@@ -110,7 +110,7 @@ text = "Quick Rise"
 script = ExtResource("4_mbwj5")
 primitiveType = 6
 
-[node name="Vibrate Button8" type="Button" parent="Primitives"]
+[node name="Vibrate Button8" type="Button" parent="Primitives" unique_id=930588721]
 offset_left = 248.0
 offset_top = 408.0
 offset_right = 456.0
@@ -119,17 +119,17 @@ text = "Slow Rise"
 script = ExtResource("4_mbwj5")
 primitiveType = 7
 
-[node name="Effects" type="Node" parent="."]
+[node name="Effects" type="Node" parent="." unique_id=632160913]
 script = ExtResource("5_ssgmf")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Effects"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Effects" unique_id=1448270172]
 offset_left = 214.0
 offset_top = 496.0
 offset_right = 268.0
 offset_bottom = 520.0
 text = "Effects"
 
-[node name="Vibrate Button" type="Button" parent="Effects"]
+[node name="Vibrate Button" type="Button" parent="Effects" unique_id=1886226097]
 offset_left = 24.0
 offset_top = 530.0
 offset_right = 232.0
@@ -137,7 +137,7 @@ offset_bottom = 586.0
 text = "Click"
 script = ExtResource("5_u728e")
 
-[node name="Vibrate Button2" type="Button" parent="Effects"]
+[node name="Vibrate Button2" type="Button" parent="Effects" unique_id=500529013]
 offset_left = 248.0
 offset_top = 602.0
 offset_right = 456.0
@@ -146,7 +146,7 @@ text = "Heavy Click"
 script = ExtResource("5_u728e")
 effectType = 3
 
-[node name="Vibrate Button3" type="Button" parent="Effects"]
+[node name="Vibrate Button3" type="Button" parent="Effects" unique_id=1866671892]
 offset_left = 24.0
 offset_top = 602.0
 offset_right = 232.0
@@ -155,7 +155,7 @@ text = "Tick"
 script = ExtResource("5_u728e")
 effectType = 2
 
-[node name="Vibrate Button4" type="Button" parent="Effects"]
+[node name="Vibrate Button4" type="Button" parent="Effects" unique_id=335711195]
 offset_left = 248.0
 offset_top = 530.0
 offset_right = 456.0
@@ -164,16 +164,16 @@ text = "Double Click"
 script = ExtResource("5_u728e")
 effectType = 1
 
-[node name="Examples" type="Node" parent="."]
+[node name="Examples" type="Node" parent="." unique_id=1375168552]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Examples"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Examples" unique_id=179309921]
 offset_left = 181.0
 offset_top = 696.0
 offset_right = 309.0
 offset_bottom = 720.0
 text = "Other examples"
 
-[node name="HSlider" type="HSlider" parent="Examples"]
+[node name="HSlider" type="HSlider" parent="Examples" unique_id=1204379968]
 offset_left = 24.0
 offset_top = 736.0
 offset_right = 240.0
@@ -183,7 +183,7 @@ max_value = 1.0
 step = 0.01
 script = ExtResource("7_8v6gv")
 
-[node name="Button" type="Button" parent="Examples"]
+[node name="Button" type="Button" parent="Examples" unique_id=1558898368]
 offset_left = 24.0
 offset_top = 796.0
 offset_right = 456.0
@@ -191,13 +191,14 @@ offset_bottom = 860.0
 text = "Composition"
 script = ExtResource("8_oxix2")
 
-[node name="Button2" type="Button" parent="Examples"]
+[node name="Button2" type="Button" parent="Examples" unique_id=1908911490]
 offset_left = 24.0
 offset_top = 880.0
 offset_right = 456.0
 offset_bottom = 944.0
 text = "Waveform"
 script = ExtResource("9_kek77")
+toggle_play = true
 curve = SubResource("Curve_kek77")
 
 [connection signal="drag_ended" from="Examples/HSlider" to="Examples/HSlider" method="_on_drag_ended"]
