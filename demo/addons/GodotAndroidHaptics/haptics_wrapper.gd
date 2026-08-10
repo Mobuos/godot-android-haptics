@@ -169,7 +169,7 @@ func hasPrimitivesSupport() -> bool:
 		print("Not running on Android!")
 		return false
 	if _plugin_singleton:
-		return _plugin_singleton.hasRichHapticsSupport()
+		return _plugin_singleton.hasPrimitiveHapticsSupport()
 	else:
 		printerr("Plugin not initialized")
 		return false

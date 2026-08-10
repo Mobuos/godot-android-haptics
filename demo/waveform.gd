@@ -20,21 +20,21 @@ func _ready() -> void:
 	#)
 	
 	# Or create one from a curve
-	var repeat = 1000 if toggle_play else -1
+	var repeat := 1000 if toggle_play else -1
 	wave = AndroidHaptics.Waveform.from_curve(curve, 2000, 20, repeat)
-	print(wave.amplitudes)
-	print(wave.timings)
-	print(wave.repeat)
+	#print(wave.amplitudes)
+	#print(wave.timings)
+	#print(wave.repeat)
 
 func _on_pressed() -> void:
-	print(wave.amplitudes)
-	print(wave.timings)
-	print(wave.repeat)
+	#print(wave.amplitudes)
+	#print(wave.timings)
+	#print(wave.repeat)
 	if toggle_play and playing:
-		print('stopping')
+		#print('stopping')
 		haptics.stopVibrations()
 		playing = false
 	else:
-		print('starting')
+		#print('starting')
 		wave.play()
 		playing = true
